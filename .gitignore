@@ -1,0 +1,65 @@
+import static java.lang.Math.*;
+import java.util.Scanner;
+
+public class L1{
+public static int[] lineSort(int masiv[], int a){
+int bufer;
+int n=a;
+for(int j=n; j>0; j--)
+for (int i=0; i<n-1; i++)
+if (masiv[i]>masiv[i+1])
+{
+bufer = masiv[i+1];
+masiv[i+1]=masiv[i];
+masiv[i]=bufer;
+}
+public static int [] qvickSort(int MM[], int F, int L){ 
+int l = L, f = F, temp;
+int middle=MM[(f+l)/2];
+do{
+while (MM[f]<middle) f++;
+while (MM[l]>middle) l--; 
+if(f<=l){
+temp=MM[f];
+MM[f]=MM[l];
+MM[l]=temp;
+f++;
+l--;
+}
+}while (f<l); 
+if (F<l) qvickSort(MM, F, l);
+if(f<L) qvickSort(MM, F, L); 
+return MM; 
+}
+public static void main(String[] args) {
+Scanner in = new Scanner(System.in); 
+boolean flag = false;
+int glob=0;
+
+while(flag!=true){
+glob = in.nextInt();
+if(glob==10 || glob==100 || glob==1000 || glob==10000) 
+flag=true;
+}
+int mas1[] = new int[glob];
+int mas[] = new int[glob];
+for (int i=0; i<glob; i++){
+mas[i] = (int) (50-random()*glob); 
+mas1[i] = (int) (-36+random()*sqrt(glob));
+}
+int first=0, last=glob-1;
+long startTime = System.nanoTime();
+qvickSort(mas, first, last);
+System.out.println("Time for QvickSort" + startTime); 
+for (int x : mas)
+System.out.print ( x+" "); 
+
+System.out.println();
+
+long startTime1 = System.nanoTime();
+lineSort(mas1, mas1.length);
+System.out.println("Time for LineSort" + startTime1); 
+for (int x : mas1)
+System.out.print ( x+" "); 
+}
+}
