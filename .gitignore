@@ -13,6 +13,8 @@ bufer = masiv[i+1];
 masiv[i+1]=masiv[i];
 masiv[i]=bufer;
 }
+return masiv;
+}
 public static int [] qvickSort(int MM[], int F, int L){ 
 int l = L, f = F, temp;
 int middle=MM[(f+l)/2];
