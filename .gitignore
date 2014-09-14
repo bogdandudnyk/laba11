@@ -1,7 +1,10 @@
+	
+package bogdan;
+
 import static java.lang.Math.*;
 import java.util.Scanner;
 
-public class L1{
+public class Bogdan {
 public static int[] lineSort(int masiv[], int a){
 int bufer;
 int n=a;
@@ -15,8 +18,8 @@ masiv[i]=bufer;
 }
 return masiv;
 }
-public static int [] qvickSort(int MM[], int F, int L){ 
-int l = L, f = F, temp;
+public static int [] qvickSort(int MM[], int first, int last){ 
+int l = last, f = first, temp;
 int middle=MM[(f+l)/2];
 do{
 while (MM[f]<middle) f++;
@@ -29,8 +32,8 @@ f++;
 l--;
 }
 }while (f<l); 
-if (F<l) qvickSort(MM, F, l);
-if(f<L) qvickSort(MM, F, L); 
+if (first<l) qvickSort(MM, first, l);
+if(f<last) qvickSort(MM, f, last); 
 return MM; 
 }
 public static void main(String[] args) {
